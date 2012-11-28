@@ -42,7 +42,7 @@
  */
 
 /* phpDocumentor version */
-if ('d:\dev\tools\pear\\pear' != '@'.'PEAR-DIR@') {
+if (dirname(__FILE__) . "/../.." != '@'.'PEAR-DIR@') {
     /** @ignore */
     define("PHPDOCUMENTOR_VER", "1.4.4");
 } else {

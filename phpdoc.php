@@ -1,4 +1,4 @@
-#!d:\xampp\php\php.exe
+#!/usr/bin/env php
 <?php
 /**
  * phpDocumentor
@@ -17,11 +17,11 @@ if ($profile && extension_loaded('xhprof')) {
     xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
 }
 
-// determine base include folder, if D:\dev\tools\pear\pear contains @php_dir then
+// determine base include folder, if pear contains @php_dir then
 // we did not install via PEAR
-$bootstrap_folder = (strpos('D:\dev\tools\pear\pear', '@php_dir') === 0)
+$bootstrap_folder = (strpos(dirname(__FILE__) . '/pear', '@php_dir') === 0)
     ? __DIR__ . '/../src'
-    : 'D:\dev\tools\pear\pear/phpDocumentor/src';
+    : __DIR__ . '/pear/phpDocumentor/src';
 
 require_once $bootstrap_folder . '/phpDocumentor/Application.php';
 $app = new phpDocumentor\Application();

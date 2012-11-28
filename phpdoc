@@ -1,4 +1,4 @@
-#!d:\xampp\php\php.exe
+#!/usr/bin/env php
 <?php
 /**
  * PHP auto documentor, like javadoc

@@ -19,8 +19,8 @@
 /**
  * @nodep Gtk
  */
-if ('D:\dev\tools\pear\pear' != '@'.'include_path'.'@') {
-    ini_set('include_path', 'D:\dev\tools\pear\pear');
+if (dirname(__FILE__) != '@'.'include_path'.'@') {
+    ini_set('include_path', dirname(__FILE__));
     $raw = false;
 } else {
     // this is a raw, uninstalled pear, either a cvs checkout, or php distro

@@ -1,4 +1,4 @@
-#!d:\xampp\php\php.exe
+#!/usr/bin/env php
 <?php
 /**
  * PHP_CodeBrowser
@@ -47,10 +47,10 @@
  * @since     File available since  0.1.0
  */
 
-if (strpos( 'd:\dev\tools\pear\\pear', '@php_dir' ) === 0) {
+if (strpos( dirname( __FILE__ ) . '\pear', '@php_dir' ) === 0) {
     require_once dirname( __FILE__ ) . '/../src/CLIController.php';
 } else {
-    require_once 'd:\dev\tools\pear\\pear/PHP_CodeBrowser/CLIController.php';
+    require_once dirname( __FILE__ ) . '/pear/PHP_CodeBrowser/CLIController.php';
 }
 
 CbCLIController::main();

@@ -13,7 +13,7 @@
 ::       E.g. for PHP 4.2 C:\phpdev\php-4.2-Win32\php-cli.exe
 ::            for PHP 4.3 C:\phpdev\php-4.3-Win32\cli\php.exe
   
-  SET phpCli=d:\xampp\php\php.exe
+SET phpCli=php.exe
 
 
 
@@ -48,16 +48,20 @@ IF '%1'=='' (
 )
 
 :: Check existence of php.exe
-IF EXIST "%phpCli%" (
-  SET doNothing=
-) ELSE GOTO :NoPhpCli
+FOR /F "delims=" %%I IN ("%phpCli%") DO (
+  IF EXIST %%~$PATH:I (
+    SET doNothing=
+  ) else (
+    GOTO :NoPhpCli
+  )
+)
 
 :: If called using options, just call phpdoc and end after without pausing.
 :: This will allow use where pausing is not wanted.
 IF '%1'=='' (
   SET doNothing=
 ) ELSE (
-  "%phpCli%" -d include_path="d:\dev\tools\pear\\pear" "d:\dev\tools\pear\\phpdoc" %*
+  "%phpCli%" -d include_path="%~dp0\pear" "%~dp0\phpdoc" %*
   GOTO :EOF
 )
 
@@ -136,9 +140,9 @@ GOTO :EOF
 GOTO :PAUSE_END
 :run
 SET found=1
-ECHO Starting: "%phpCli%" "d:\dev\tools\pear\\phpdoc" -c "%iniFile%"
+ECHO Starting: "%phpCli%" "%~dp0\phpdoc" -c "%iniFile%"
 ECHO.
-"%phpCli%"  -d include_path="d:\dev\tools\pear\\pear" "d:\dev\tools\pear\\phpdoc" -c "%iniFile%"
+"%phpCli%"  -d include_path="%~dp0\pear" "%~dp0\phpdoc" -c "%iniFile%"
 GOTO :EOF
 
 :PAUSE_END

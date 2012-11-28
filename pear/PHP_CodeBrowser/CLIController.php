@@ -46,10 +46,10 @@
  * @link      http://www.phpunit.de/
  * @since     File available since  0.1.0
  */
-
-if (strpos('d:\dev\tools\pear\\pear', '@php_dir') === false) {
+$tooldir = dirname(__FILE__) . "/../..";
+if (strpos($tooldir, '@php_dir') === false) {
     if (!defined('PHPCB_ROOT_DIR')) {
-        define('PHPCB_ROOT_DIR', 'd:\dev\tools\pear\\pear/PHP_CodeBrowser');
+        define('PHPCB_ROOT_DIR', $tooldir . '/pear/PHP_CodeBrowser');
     }
     if (!defined('PHPCB_TEMPLATE_DIR')) {
         define('PHPCB_TEMPLATE_DIR', 'C:\php\pear\data/PHP_CodeBrowser/templates');

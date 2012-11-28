@@ -34,5 +34,5 @@ REM ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 REM POSSIBILITY OF SUCH DAMAGE.
 REM
 
-set PHPBIN=d:\xampp\php\php.exe
-"d:\xampp\php\php.exe" "d:\dev\tools\pear\\phpcpd" %*
+set PHPBIN=php.exe
+%PHPBIN% "%~dp0\phpcpd" %*

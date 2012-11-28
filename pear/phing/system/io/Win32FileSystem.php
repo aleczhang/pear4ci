@@ -48,7 +48,9 @@ class Win32FileSystem extends FileSystem {
     }
 
     function slashify($p) {
-        if ((strlen($p) > 0) && ($p{0} != $this->slash)) {
+        if ($p == '.') {
+            return '';
+        } elseif ((strlen($p) > 0) && ($p{0} != $this->slash)) {
             return $this->slash.$p;
         }
         else {
@@ -245,6 +247,9 @@ class Win32FileSystem extends FileSystem {
 
         $pn = (int) strlen($parent);
         if ($pn === 0) {
+            return $child;
+        }
+        if ($parent == '.') {
             return $child;
         }
         $cn = (int) strlen($child);

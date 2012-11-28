@@ -30,7 +30,17 @@ FOR %%x IN ("%~dp0\pear") DO (if %%x=="%PMTPMTPMT%" GOTO :NOTINSTALLED)
 REM Check PEAR global ENV, set them if they do not exist
 IF "%PHP_PEAR_INSTALL_DIR%"=="" SET "PHP_PEAR_INSTALL_DIR=%~dp0\pear"
 IF "%PHP_PEAR_BIN_DIR%"=="" SET "PHP_PEAR_BIN_DIR=%~dp0"
-IF "%PHP_PEAR_PHP_BIN%"=="" SET "PHP_PEAR_PHP_BIN=d:\xampp\php\php.exe"
+:: Detect path php.exe
+IF "%PHP_PEAR_PHP_BIN%"=="" (
+FOR /F "delims=" %%I IN ("php.exe") DO (
+    IF EXIST %%~$PATH:I (
+      SET "PHP_PEAR_PHP_BIN=%%~$PATH:I"
+    ) else (
+      echo "Cant find 'php.exe' in '%PATH%'"
+      GOTO :END
+    )
+  )
+)
 GOTO :INSTALLED
 
 :NOTINSTALLED

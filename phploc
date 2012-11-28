@@ -42,7 +42,7 @@
  * @since     File available since Release 1.0.0
  */
 
-if (strpos('d:\xampp\php\php.exe', '@php_bin') === 0) {
+if (strpos('php.exe', '@php_bin') === 0) {
     require __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'autoload.php';
 } else {
     require 'SebastianBergmann/PHPLOC/autoload.php';

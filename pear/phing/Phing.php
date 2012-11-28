@@ -1100,7 +1100,7 @@ class Phing {
         // If we are using this via PEAR then check for the file in the data dir
         // This is a bit of a hack, but works better than previous solution of assuming
         // data_dir is on the include_path.
-        $dataDir = 'C:\php\pear\data';
+        $dataDir = dirname(__FILE__).'/../../data';
         if ($dataDir{0} != '@') { // if we're using PEAR then the @ DATA-DIR @ token will have been substituted.
             if (!file_exists($dataDir)) {
             	self::log("The PEAR data_dir setting is incorrect: {$dataDir}.", Project::MSG_ERR);

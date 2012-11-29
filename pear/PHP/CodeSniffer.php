@@ -2066,7 +2066,8 @@ class PHP_CodeSniffer
         if ($temp === false) {
             $configFile = dirname(__FILE__).'/CodeSniffer.conf';
             if (is_file($configFile) === false) {
-                $configFile = 'C:\php\pear\data/PHP_CodeSniffer/CodeSniffer.conf';
+                $configFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
+                    . '..' . DIRECTORY_SEPARATOR . 'PHP_CodeSniffer/CodeSniffer.conf';
             }
 
             if (is_file($configFile) === true
@@ -2118,7 +2119,8 @@ class PHP_CodeSniffer
 
         $configFile = dirname(__FILE__).'/CodeSniffer.conf';
         if (is_file($configFile) === false) {
-            $configFile = 'C:\php\pear\data/PHP_CodeSniffer/CodeSniffer.conf';
+            $configFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
+                . '..' . DIRECTORY_SEPARATOR . 'PHP_CodeSniffer/CodeSniffer.conf';
         }
 
         if (is_file($configFile) === false) {

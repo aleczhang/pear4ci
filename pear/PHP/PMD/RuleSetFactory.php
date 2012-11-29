@@ -79,7 +79,7 @@ class PHP_PMD_RuleSetFactory
      *
      * @var string
      */
-    private $location = 'C:\php\pear\data';
+    private $location = null;
 
     /**
      * The minimum priority for rules to load.
@@ -94,8 +94,8 @@ class PHP_PMD_RuleSetFactory
     public function __construct()
     {
         // PEAR installer workaround
-        if (strpos($this->location, '@data_dir') === 0) {
-            $this->location = dirname(__FILE__) . '/../../../resources';
+        if ($this->location === null) {
+            $this->location = dirname(__FILE__) . '/../../../data/PHP_PMD/resources';
         } else {
             $this->location .= '/PHP_PMD/resources';
         }

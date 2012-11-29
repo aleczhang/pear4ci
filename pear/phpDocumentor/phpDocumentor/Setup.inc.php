@@ -241,12 +241,7 @@ class phpDocumentor_setup
             $_phpDocumentor_setting = phpDocumentor_parse_ini_file($file.'.ini');
         } else
         {
-            if ('C:\php\pear\data' != '@'.'DATA-DIR@')
-            {
-                $configdir = str_replace('\\','/', 'C:\php\pear\data/PhpDocumentor') . PATH_DELIMITER . 'user' . PATH_DELIMITER;
-            } else {
-                $configdir = str_replace('\\','/',$GLOBALS['_phpDocumentor_install_dir']) . PATH_DELIMITER . 'user' . PATH_DELIMITER;
-            }
+            $configdir = dirname(__FILE__) . '/../../../data/PhpDocumentor' . PATH_DELIMITER . 'user' . PATH_DELIMITER;
             if (isset($_phpDocumentor_options['userdir'])) $configdir = $_phpDocumentor_options['userdir'];
             if (substr($configdir,-1) != '/')
             {
@@ -781,14 +776,9 @@ class phpDocumentor_setup
     {
         phpDocumentor_out("Parsing configuration file phpDocumentor.ini...\n");
         flush();
-        if ('C:\php\pear\data' != '@'.'DATA-DIR@')
-        {
-            $options = phpDocumentor_parse_ini_file(str_replace('\\','/', 'C:\php\pear\data/PhpDocumentor') . PATH_DELIMITER . 'phpDocumentor.ini',true);
-            phpDocumentor_out("   (found in " . 'C:\php\pear\data/PhpDocumentor' . PATH_DELIMITER . ")...\n");
-        } else {
-            $options = phpDocumentor_parse_ini_file(str_replace('\\','/',$GLOBALS['_phpDocumentor_install_dir']) . PATH_DELIMITER . 'phpDocumentor.ini',true);
-            phpDocumentor_out("   (found in " . $GLOBALS['_phpDocumentor_install_dir'] . PATH_DELIMITER . ")...\n");
-        }
+        $data_dir = dirname(__FILE__) . '/../../../data/PhpDocumentor';
+        $options = phpDocumentor_parse_ini_file($data_dir . PATH_DELIMITER . 'phpDocumentor.ini',true);
+        phpDocumentor_out("   (found in " . $data_dir . PATH_DELIMITER . ")...\n");
 
         if (!$options)
         {

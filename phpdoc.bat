@@ -73,7 +73,7 @@ ECHO Select Ini-File [default is phpDocumentor.ini]
 ECHO ------------------------------------------------------------------------------
 ECHO # 0: phpDocumentor.ini
 SET count=0
-FOR /R "C:\php\pear\data\PhpDocumentor\user" %%I IN (*.ini) DO (
+FOR /R "%~dp0\data\PhpDocumentor\user" %%I IN (*.ini) DO (
   SET /a count+=1
   CALL :exec ECHO # %%count%%: %%~nI%%~xI
 )
@@ -99,7 +99,7 @@ IF %iniNr%==0 (
 :: Check selected
 SET count=0
 SET found=
-FOR /R "C:\php\pear\data\PhpDocumentor\user" %%I IN (*.ini) DO (
+FOR /R "%~dp0\data\PhpDocumentor\user" %%I IN (*.ini) DO (
   SET /a count+=1
   SET iniFile=%%~nI%%~xI
   CALL :exec IF '%%iniNr%%'=='%%count%%' GOTO :run 

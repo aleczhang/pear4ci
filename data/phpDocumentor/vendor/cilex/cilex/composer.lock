@@ -1,0 +1,34 @@
+{
+    "hash": "f27efa0dabd34c1389058ea4c64e2e97",
+    "packages": [
+        {
+            "package": "pimple/pimple",
+            "version": "1.0.0"
+        },
+        {
+            "package": "symfony/console",
+            "version": "v2.1.0"
+        },
+        {
+            "package": "symfony/finder",
+            "version": "v2.1.0"
+        },
+        {
+            "package": "symfony/process",
+            "version": "v2.1.0"
+        }
+    ],
+    "packages-dev": [
+        {
+            "package": "symfony/validator",
+            "version": "v2.1.0"
+        }
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ]
+}

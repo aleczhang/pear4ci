@@ -47,20 +47,11 @@
  * @since     File available since  0.1.0
  */
 $tooldir = dirname(__FILE__) . "/../..";
-if (strpos($tooldir, '@php_dir') === false) {
-    if (!defined('PHPCB_ROOT_DIR')) {
-        define('PHPCB_ROOT_DIR', $tooldir . '/pear/PHP_CodeBrowser');
-    }
-    if (!defined('PHPCB_TEMPLATE_DIR')) {
-        define('PHPCB_TEMPLATE_DIR', 'C:\php\pear\data/PHP_CodeBrowser/templates');
-    }
-} else {
-    if (!defined('PHPCB_ROOT_DIR')) {
-        define('PHPCB_ROOT_DIR', realpath(dirname(__FILE__) . '/../'));
-    }
-    if (!defined('PHPCB_TEMPLATE_DIR')) {
-        define('PHPCB_TEMPLATE_DIR', realpath(dirname(__FILE__) . '/../templates'));
-    }
+if (!defined('PHPCB_ROOT_DIR')) {
+    define('PHPCB_ROOT_DIR', $tooldir . '/pear/PHP_CodeBrowser');
+}
+if (!defined('PHPCB_TEMPLATE_DIR')) {
+    define('PHPCB_TEMPLATE_DIR', $tooldir . '/data/PHP_CodeBrowser/templates');
 }
 
 require_once dirname(__FILE__) . '/Autoload.php';
